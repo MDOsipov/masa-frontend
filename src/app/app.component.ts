@@ -17,6 +17,8 @@ export class AppComponent {
   public myProperty: string = "Hooray!!!";
   public htmlProperty: string = "<i>La la!</i>";
 
+  public JSON = JSON;
+
   public person: IPerson = {
     name: 'Mikhail',
     id: '43552',

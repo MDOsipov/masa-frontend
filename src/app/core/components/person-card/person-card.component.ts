@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-enum Mode {
+enum ViewMode {
   Readonly,
   Edit
 }
@@ -19,14 +19,37 @@ export class PersonCardComponent {
   @Input() personAddress: string = "";
   @Input() personEmail: string = "";
 
+  @Output() personNameChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() personIdChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() personAddressChange: EventEmitter<string> = new EventEmitter<string>();
+  @Output() personEmailChange: EventEmitter<string> = new EventEmitter<string>();
+
   @Output() onModeChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  public ViewMode = ViewMode;
 
   public buttonTitle: string = '';
 
-  private _mode: Mode = Mode.Readonly;
+  public mode: ViewMode = ViewMode.Readonly;
 
   private setButtonTitle() {
-    this.buttonTitle = this._mode === Mode.Readonly ? Edit : Save;
+    this.buttonTitle = this.mode === ViewMode.Readonly ? Edit : Save;
+  }
+
+  public onPersonNameChange(): void {
+    this.personNameChange.emit(this.personName);
+  }
+
+  public onPersonIdChange(): void {
+    this.personIdChange.emit(this.personId);
+  }
+
+  public onPersonAddressChange(): void {
+    this.personAddressChange.emit(this.personAddress);
+  }
+
+  public onPersonEmailChange(): void {
+    this.personEmailChange.emit(this.personEmail);
   }
 
   constructor() {
@@ -34,9 +57,9 @@ export class PersonCardComponent {
   }
 
   public onToggleModeClick(): void {
-    this._mode = this._mode === Mode.Readonly ? Mode.Edit : Mode.Readonly;
+    this.mode = this.mode === ViewMode.Readonly ? ViewMode.Edit : ViewMode.Readonly;
     this.setButtonTitle();
-    this.onModeChange.emit(this._mode === Mode.Edit);
+    this.onModeChange.emit(this.mode === ViewMode.Edit);
   }
 
 }

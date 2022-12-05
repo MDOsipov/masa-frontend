@@ -36,8 +36,10 @@
 
   <div [innerHTML]="cardMessage"></div>
 
-  <mf-person-card [personName]="person.name" [personId]="person.id" [personAddress]="person.address"
-    [personEmail]="person.email" (onModeChange)="onCardModeChanged($event)">
+  {{"Person: " + JSON.stringify(person)}}
+
+  <mf-person-card [(personName)]="person.name" [(personId)]="person.id" [(personAddress)]="person.address"
+    [(personEmail)]="person.email" (onModeChange)="onCardModeChanged($event)">
 
   </mf-person-card>
 
