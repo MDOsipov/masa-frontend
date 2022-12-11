@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { IPerson } from '../persons/persons.page'
+import { IPerson } from 'src/app/entities';
 import { Topic } from '../../../constants';
 
 interface IPersonWithGender extends IPerson {
@@ -26,7 +26,9 @@ export class NewPage {
     name: '',
     gender: '',
     address: '',
-    email: ''
+    email: '',
+    birthdate: new Date(),
+    salary: 0
   };
 
   public names: string[] = ['Mikhail', 'Venya', 'Kolya'];

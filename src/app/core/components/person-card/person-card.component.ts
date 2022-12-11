@@ -14,14 +14,13 @@ const Save: string = "Save";
   styleUrls: ['./person-card.component.less']
 })
 export class PersonCardComponent implements OnInit {
-  @Input() personName: string = "";
+  @Input() personName: string;
   @Input() personId: string = "";
   @Input() personAddress: string = "";
   @Input() personEmail: string = "";
   @Input() personGender: string = "";
-
-  public genderOptions: string[] = ['male', 'female'];
-
+  @Input() personBirthdate: Date = new Date();
+  @Input() personSalary: number = 0;
 
   @Output() personNameChange: EventEmitter<string> = new EventEmitter<string>();
   @Output() personIdChange: EventEmitter<string> = new EventEmitter<string>();
@@ -32,10 +31,9 @@ export class PersonCardComponent implements OnInit {
   @Output() onModeChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSaveClicked: EventEmitter<void> = new EventEmitter<void>();
 
+  public genderOptions: string[] = ['male', 'female'];
   public ViewMode = ViewMode;
-
   public buttonTitle: string = '';
-
   public mode: ViewMode = ViewMode.Readonly;
 
   private setButtonTitle() {
@@ -49,7 +47,6 @@ export class PersonCardComponent implements OnInit {
   public onPersonGenderChange(): void {
     this.personGenderChange.emit(this.personGender);
   }
-
 
   public onPersonIdChange(): void {
     this.personIdChange.emit(this.personId);

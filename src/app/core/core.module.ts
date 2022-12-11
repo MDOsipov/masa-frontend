@@ -9,6 +9,9 @@ import { NotFoundPage } from './pages/four-oh-four.page/four-oh-four.page';
 import { NewPage } from './pages/new-page/new.page';
 import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 import { RadioButtonSecondComponent } from './components/radio-button-second/radio-button-second.component';
+import { GenericRadioButtonComponent } from './components/generic-radio-button/generic-radio-button.component';
+import { DoublePipe } from './pipes/double.pipe';
+import { PersonService } from './services/person.service';
 
 
 @NgModule({
@@ -22,7 +25,9 @@ import { RadioButtonSecondComponent } from './components/radio-button-second/rad
         NotFoundPage,
         NewPage,
         RadioButtonComponent,
-        RadioButtonSecondComponent
+        RadioButtonSecondComponent,
+        GenericRadioButtonComponent,
+        DoublePipe
     ],
     exports: [
         PersonCardComponent,
@@ -31,5 +36,7 @@ import { RadioButtonSecondComponent } from './components/radio-button-second/rad
 })
 
 export class CoreModule {
-
+    constructor(personService: PersonService) {
+        personService.initialize();
+    }
 }  

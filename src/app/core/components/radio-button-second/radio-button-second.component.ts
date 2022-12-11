@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ISelectableOption } from 'src/app/entities';
 import { v4 as uuidv4} from 'uuid';
 
 @Component({
@@ -7,12 +8,12 @@ import { v4 as uuidv4} from 'uuid';
   styleUrls: ['./radio-button-second.component.less']
 })
 export class RadioButtonSecondComponent {
+
   @Input() value: string = "";
   @Input() options: string[] = [];
   @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 
   public unique: string = uuidv4();
-
 
   public onChange(): void {
     this.valueChange.emit(this.value);

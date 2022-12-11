@@ -40,16 +40,34 @@
 
     <div [innerHTML]="cardMessage"></div>
 
-    {{"Person: " + JSON.stringify(person)}}
+    <!-- {{"Person: " + JSON.stringify(person)}} -->
+    -------------------------------------
+    <p>
+        Person cards:
+    </p>
 
-    <mf-person-card *ngFor="let person of persons" [(personName)]="person.name" [(personId)]="person.id"
-        [(personAddress)]="person.address" [(personEmail)]="person.email" (onModeChange)="onCardModeChanged($event)"
-        (onSaveClicked)="onSaveClicked()" [(personGender)]="person.gender">
+    <mf-person-card *ngFor="let person of personService.persons" 
+        [(personName)]="person.name" 
+        [(personId)]="person.id"
+        [(personAddress)]="person.address" 
+        [(personEmail)]="person.email" 
+        (onModeChange)="onCardModeChanged($event)"
+        (onSaveClicked)="onSaveClicked()" 
+        [(personGender)]="person.gender" 
+        [personBirthdate]="person.birthdate"
+        [personSalary]="person.salary">
     </mf-person-card>
 
-    <br>
+    <p>
+        Generic radio buttons:
+    </p>
     --------------------------------------
-    <br>
+    <mf-generic-radio-button [options]="layoutOptions" [layout]="Layout.Horizontal" [(value)]="selectedPersonLayout">
 
+    </mf-generic-radio-button>
+
+    <mf-generic-radio-button [options]="personOptions" [layout]="selectedPersonLayout" [(value)]="selectedPerson">
+
+    </mf-generic-radio-button>
 
 </div>

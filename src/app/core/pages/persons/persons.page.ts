@@ -1,14 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LocalStorageKeys } from 'src/app/constants';
-import { LocalStorageService } from '../../services/local.storage.service';
+import { IPerson, ISelectableOption } from 'src/app/entities';
+import { Layout } from 'src/app/enums';
+import { PersonService } from '../../services/person.service';
 
-export interface IPerson {
-  name: string;
-  id: string;
-  address: string;
-  email: string;
-  gender: string;
-}
+
 
 @Component({
   selector: 'app-persons.page',
@@ -17,19 +13,15 @@ export interface IPerson {
 })
 
 export class PersonsPage implements OnInit {
-  title = 'masa-frontend';
 
-  constructor(private localStorageService: LocalStorageService) {
-
-  }
-
-  public ngOnInit(): void {
-    this.persons = this.localStorageService.get(LocalStorageKeys.PERSONS);
-  }
+  public Layout = Layout;
+  public layoutOptions: ISelectableOption<Layout>[] = [];
+  public personOptions: ISelectableOption<IPerson>[] = [];
+  public selectedPerson: IPerson | null = null;
+  public selectedPersonLayout: Layout = Layout.Vertical;
 
   public myProperty: string = "Hooray!!!";
   public htmlProperty: string = "<i>La la!</i>";
-
   public JSON = JSON;
 
   public person: IPerson = {
@@ -37,11 +29,37 @@ export class PersonsPage implements OnInit {
     id: '43552',
     address: 'Haifa',
     email: 'dos123',
-    gender: 'male'
+    gender: 'male',
+    birthdate: new Date(),
+    salary:4054
   }
 
-  public persons: IPerson[] | null = null;
+  constructor(public personService: PersonService) {}
 
+  public ngOnInit(): void {
+   
+    this.layoutOptions.push({
+      title: Layout.Horizontal,
+      value: Layout.Horizontal
+    },
+    {
+      title: Layout.Vertical,
+      value: Layout.Vertical
+    });
+
+    if (this.personService.persons) 
+    {
+      this.personOptions = this.personService.persons?.map((person: IPerson) => {
+        return {
+          title: person.name,
+          value: person
+        };
+      });
+
+      this.selectedPerson = this.personService.persons.length > 0 ? this.personService.persons[0] : null;
+    }
+  
+  }
 
   public onClickMeClick(): void {
     this.myProperty = "New data!";
@@ -52,10 +70,9 @@ export class PersonsPage implements OnInit {
   }
 
   public onSaveClicked(): void {
-    this.localStorageService.set(LocalStorageKeys.PERSONS, this.persons);
+    // this.localStorageService.set(LocalStorageKeys.PERSONS, this.persons);
   }
 
   public cardMessage: string = "";
 
-  public genderOptions: string[] = ['male', 'female'];
 }
