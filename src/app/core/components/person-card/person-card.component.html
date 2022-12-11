@@ -10,6 +10,7 @@
         <div [innerText]="personId"></div>
         <div [innerText]="personAddress"></div>
         <div [innerText]="personEmail"></div>
+        <div [innerText]="personGender"></div>
     </div>
 
     <div *ngIf="mode===ViewMode.Edit">
@@ -27,6 +28,10 @@
         <input type="text" id="email" class="form-control" [(ngModel)]="personEmail" (keyup)="onPersonEmailChange()">
     </div>
 
-    <button [innerText]="buttonTitle" (click)="onToggleModeClick()">edit</button>
+    <mf-radio-button-second [options]="genderOptions" [(value)]="personGender">
+        (valueChange)="onPersonGenderChange()"
+    </mf-radio-button-second>
+
+    <button [innerText]="buttonTitle" (click)="onToggleModeClick()"></button>
 
 </div>

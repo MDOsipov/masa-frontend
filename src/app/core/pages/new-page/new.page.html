@@ -1,0 +1,33 @@
+<div *ngIf="closeForm===false">
+    <h2>Choose a name: </h2>
+    <app-radio-button *ngFor="let name of names" [nameOption]="name" (personNameChange)="onPersonNameChange($event)"
+        [topic]="nameTopic">
+
+    </app-radio-button>
+
+    <h2>Choose an address: </h2>
+    <app-radio-button *ngFor="let address of addresses" [addressOption]="address"
+        (personAddressChange)="onPersonAddressChange($event)" [topic]="addressTopic">
+
+    </app-radio-button>
+
+    <h2>Choose gender: </h2>
+    <app-radio-button *ngFor="let gender of genders" [genderOption]="gender"
+        (personGenderChange)="onPersonGenderChange($event)" [topic]="genderTopic">
+
+    </app-radio-button>
+
+    <h2>Choose email: </h2>
+    <app-radio-button *ngFor="let email of emails" [emailOption]="email"
+        (personEmailChange)="onPersonEmailChange($event)" [topic]="emailTopic">
+
+    </app-radio-button>
+</div>
+
+<app-radio-button [topic]="buttonHandler" (modeChange)="onCloseForm($event)">
+
+</app-radio-button>
+
+<div *ngIf="closeForm===true">
+    {{"Person: " + JSON.stringify(newPerson)}}
+</div>

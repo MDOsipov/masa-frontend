@@ -1,0 +1,42 @@
+<div *ngIf="mode===Mode.save">
+    <div>
+        <div class="form-check" *ngIf="topic===Topic.name">
+            <input class="form-check-input" type="radio" name="radio" id='radio' value={{nameOption}}
+                (change)="onPersonNameChange($event)">
+            <!-- <label class="form-check-label" for='radio' [textContent]="option"></label> -->
+            <i [textContent]="nameOption"> </i>
+        </div>
+    </div>
+
+    <div>
+        <div class="form-check" *ngIf="topic===Topic.address">
+            <input class="form-check-input" type="radio" name="radioAddress" id='radioAddress' value={{addressOption}}
+                (change)="onPersonAddressChange($event)">
+            <!-- <label class="form-check-label" for='radio' [textContent]="option"></label> -->
+            <i [textContent]="addressOption"> </i>
+        </div>
+    </div>
+
+    <div>
+        <div class="form-check" *ngIf="topic===Topic.gender">
+            <input class="form-check-input" type="radio" name="radioGender" id='radioGender' value={{genderOption}}
+                (change)="onPersonGenderChange($event)">
+            <!-- <label class="form-check-label" for='radio' [textContent]="option"></label> -->
+            <i [textContent]="genderOption"> </i>
+        </div>
+    </div>
+
+    <div>
+        <div class="form-check" *ngIf="topic===Topic.email">
+            <input class="form-check-input" type="radio" name="radioEmail" id='radioEmail' value={{emailOption}}
+                (change)="onPersonEmailChange($event)">
+            <!-- <label class="form-check-label" for='radio' [textContent]="option"></label> -->
+            <i [textContent]="emailOption"> </i>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <button [innerText]="buttonTitle" (click)="onToggleModeClick()" *ngIf="topic===Topic.button"></button>
+</div>
