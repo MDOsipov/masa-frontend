@@ -16,6 +16,7 @@ interface storedPerson {
 interface iPersonService {
     persons: IPerson[]
     initialize(): void;
+    save(): void;
 }
 
 @Injectable({
@@ -38,6 +39,10 @@ export class PersonService implements iPersonService {
         this._persons = persons.map((person: storedPerson) => {
             return this.toLocal(person);
         });
+    }
+
+    public save(): void {
+        this.localStorageService.set(LocalStorageKeys.PERSONS, this._persons);
     }
 
     private toLocal(person: storedPerson): IPerson {
