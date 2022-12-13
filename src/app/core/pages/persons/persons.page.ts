@@ -15,10 +15,12 @@ import { PersonService } from '../../services/person.service';
 export class PersonsPage implements OnInit {
 
   public Layout = Layout;
+
   public layoutOptions: ISelectableOption<Layout>[] = [];
   public personOptions: ISelectableOption<IPerson>[] = [];
-  public selectedPerson: IPerson | null = null;
-  public selectedPersonLayout: Layout = Layout.Vertical;
+
+  public selectedPersons: IPerson[] = [];
+  public selectedPersonLayout: Layout[] = [];
 
   public myProperty: string = "Hooray!!!";
   public htmlProperty: string = "<i>La la!</i>";
@@ -56,7 +58,7 @@ export class PersonsPage implements OnInit {
         };
       });
 
-      this.selectedPerson = this.personService.persons.length > 0 ? this.personService.persons[0] : null;
+      // this.selectedPersons = this.personService.persons.length > 0 ? [this.personService.persons[0]] : [];
     }
   
   }

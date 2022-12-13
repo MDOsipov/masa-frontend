@@ -9,7 +9,7 @@ import { NotFoundPage } from './pages/four-oh-four.page/four-oh-four.page';
 import { NewPage } from './pages/new-page/new.page';
 import { RadioButtonComponent } from './components/radio-button/radio-button.component';
 import { RadioButtonSecondComponent } from './components/radio-button-second/radio-button-second.component';
-import { GenericRadioButtonComponent } from './components/generic-radio-button/generic-radio-button.component';
+import { GenericMultiselectComponent } from './components/generic-radio-button/generic-multiselect.component';
 import { DoublePipe } from './pipes/double.pipe';
 import { PersonService } from './services/person.service';
 
@@ -26,7 +26,7 @@ import { PersonService } from './services/person.service';
         NewPage,
         RadioButtonComponent,
         RadioButtonSecondComponent,
-        GenericRadioButtonComponent,
+        GenericMultiselectComponent,
         DoublePipe
     ],
     exports: [

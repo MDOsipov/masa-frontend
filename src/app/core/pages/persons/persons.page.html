@@ -62,12 +62,19 @@
         Generic radio buttons:
     </p>
     --------------------------------------
-    <mf-generic-radio-button [options]="layoutOptions" [layout]="Layout.Horizontal" [(value)]="selectedPersonLayout">
-
-    </mf-generic-radio-button>
-
-    <mf-generic-radio-button [options]="personOptions" [layout]="selectedPersonLayout" [(value)]="selectedPerson">
-
-    </mf-generic-radio-button>
+    <mf-generic-multiselect 
+        [options]="layoutOptions" 
+        [layout]="Layout.Horizontal" 
+        [(value)]="selectedPersonLayout"
+        [isMultiselect]="false">
+    </mf-generic-multiselect>
+  
+    <mf-generic-multiselect 
+        [options]="personOptions" 
+        [layout]="selectedPersonLayout[0]" 
+        [(value)]="selectedPersons"
+        [isMultiselect]="true">
+    </mf-generic-multiselect>
+   
 
 </div>
