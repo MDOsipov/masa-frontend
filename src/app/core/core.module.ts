@@ -12,12 +12,16 @@ import { RadioButtonSecondComponent } from './components/radio-button-second/rad
 import { GenericMultiselectComponent } from './components/generic-radio-button/generic-multiselect.component';
 import { DoublePipe } from './pipes/double.pipe';
 import { PersonService } from './services/person.service';
+import { RxjsPage } from './pages/rxjs/rxjs.page';
+import { LoginPage } from './pages/login/login.page';
+import { HttpClientModule } from "@angular/common/http";
 
 
 @NgModule({
     imports: [
         FormsModule,
-        CommonModule
+        CommonModule,
+        HttpClientModule
     ],
     declarations: [
         PersonCardComponent,
@@ -27,7 +31,9 @@ import { PersonService } from './services/person.service';
         RadioButtonComponent,
         RadioButtonSecondComponent,
         GenericMultiselectComponent,
-        DoublePipe
+        DoublePipe,
+        RxjsPage,
+        LoginPage
     ],
     exports: [
         PersonCardComponent,

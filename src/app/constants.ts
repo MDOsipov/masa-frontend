@@ -5,6 +5,8 @@ export class LocalStorageKeys {
 export class States {
     public static persons: string = "persons";
     public static new: string = "new";
+    public static rxjs: string = "rxjs";
+    public static login: string = "login";
 }
 
 export enum Topic {
@@ -13,4 +15,10 @@ export enum Topic {
     gender,
     email,
     button
+}
+
+export class Endpoints {
+    private static baseUrl: string = 'http://localhost:6060/';
+    public static login: string = `${this.baseUrl}auth/login`;
+    public static userById: string = `${this.baseUrl}user/`
 }
