@@ -1,0 +1,60 @@
+.flex-basics-page {
+    // &.flex-container {
+    //     display: flex;
+    //     flex-direction: row;
+    //     // flex-wrap: wrap-reverse;
+    //    .flex-item {
+    //         flex-grow: 2;
+    //    }
+
+    //    .flex-1 {
+    //     flex-basis: 50%;
+    //    }
+    // }
+
+    // New approach
+    // &.external-container {
+    //     height: 250px;
+    //     // height: 100%;
+    //     display: flex;
+    //     justify-content: center; // По главной оси
+    //     align-items: center; // По второстепенной оси
+    // }
+
+    // Или так
+    &.external-container {
+        height: 250px;
+        // height: 100%;
+        display: flex;
+        .internal-element {
+            align-self: center;
+            justify-self: center;
+        }
+    }
+
+
+    // Old approach
+    // &.external-container {
+    //     height: 250px;
+
+    //     .internal-element {
+    //         text-align: center;
+    //         line-height: 250px; // 100% not working, MUST have hardcoded value
+    //     }
+    // }
+
+    // Second old approach
+    // &.external-container {
+    //     height: 250px;
+    //     position: relative;
+
+    //     .internal-element {
+    //         position: absolute;
+    //         top: 50%;
+    //         left: 50%;
+    //         transform: translate(-50%, -50%);
+    //     }
+    // }
+
+}
+

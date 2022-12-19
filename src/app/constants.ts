@@ -7,6 +7,8 @@ export class States {
     public static new: string = "new";
     public static rxjs: string = "rxjs";
     public static login: string = "login";
+    public static flexBox: string = "flex-box";
+    public static flexTest: string = "flex-test";
 }
 
 export enum Topic {

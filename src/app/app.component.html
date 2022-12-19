@@ -1,3 +1,21 @@
 <div class="mf-app-component">
-  <router-outlet></router-outlet>
+  <div class="mf-layout-wrapper mf-flex mf-flex-column">
+    <div class="mf-flex mf-header mf-flex-center">
+      Header
+    </div>
+    <div class="mf-flex mf-flex-col-1 mf-menu-rest-wrapper" [ngClass]="{'mf-flex-row-reverse': isRtl, 'mf-flex-row': !isRtl}">
+      <div class="mf-menu">
+        Menu
+      </div>
+      <div class="mf-flex mf-flex-column mf-flex-col-1 mf-content-footer-wrapper">
+        <div class="mf-flex-col-1 mf-content">
+          <router-outlet></router-outlet>
+        </div>
+        <div class="mf-flex mf-footer mf-flex-center">
+          Footer
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

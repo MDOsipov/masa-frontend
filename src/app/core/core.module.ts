@@ -15,6 +15,8 @@ import { PersonService } from './services/person.service';
 import { RxjsPage } from './pages/rxjs/rxjs.page';
 import { LoginPage } from './pages/login/login.page';
 import { HttpClientModule } from "@angular/common/http";
+import { FlexBasicsPage } from './pages/flex-basics/flex-basics.page';
+import { FlexTestPage } from './pages/flex-test/flex-test.page';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { HttpClientModule } from "@angular/common/http";
         GenericMultiselectComponent,
         DoublePipe,
         RxjsPage,
-        LoginPage
+        LoginPage,
+        FlexBasicsPage,
+        FlexTestPage
     ],
     exports: [
         PersonCardComponent,

@@ -15,6 +15,7 @@ interface ILoginResponse {
 
 interface IUserService {
   login(user: IUser): Observable<void>;
+  getUserById(id: number): Observable<IUserInfo>;
 }
 
 interface IUserResponse {

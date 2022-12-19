@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     FormsModule,
     CoreModule,
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule
   ],
   exports: [
     FormsModule,
